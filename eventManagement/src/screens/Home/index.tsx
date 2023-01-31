@@ -26,7 +26,7 @@ export const Home =()=>{
    
 
     const removeParticipantHandler =(participant : string)=>{
-       Alert.alert('Delete?',  `Do you want to delete ${participant}`, [
+       Alert.alert('Delete?',  `Do you want to delete ${participant} from this Event ?`, [
             {
             text: 'Yes',
             onPress: ()=> setParticipants((prevState)=> prevState.filter(currentParticipant => currentParticipant !== participant))   

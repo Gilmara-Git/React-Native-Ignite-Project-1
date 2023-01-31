@@ -1,5 +1,5 @@
 import { View, Text , TouchableOpacity } from 'react-native';
-import AntDesign from '@expo/vector-icons/AntDesign';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import themes from '../../themes/themes';
 import styles from './styles';
 
@@ -20,7 +20,7 @@ export const Participant =({ name , onRemove}: ParticipantProps)=>{
                 style={styles.button}
                 onPress={onRemove}
             >
-                <AntDesign name='minus' size={24} color={themes.colors.lightWhite} />
+                <Ionicons name='trash-outline' size={24} color={themes.colors.lightWhite} />
             </TouchableOpacity>
 
         </View>
