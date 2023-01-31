@@ -17,7 +17,11 @@ if(!fontsLoaded){
 
   return (      
       <> 
-      <StatusBar style='light' />
+      <StatusBar 
+        style='light'
+        backgroundColor='transparent'
+        translucent
+      />
       <Home/>
       </>
   );
