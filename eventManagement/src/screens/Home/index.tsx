@@ -1,19 +1,34 @@
 import styles from './styles';
 import themes from '../../themes/themes';
-import { View, Text , TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text , TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { Participant } from '../../components/Participant';
 import { useState } from 'react';
 
 export const Home =()=>{
     const [ participant, setParticipant ] = useState();
+    const participants = ['gil', 'Jana','Dayana', 'Poly', 'Aloisio', 'Nilva', 'Rosa', 'Rosaria']
+    
+    
+    const addParticipantHandler =()=>{
+    if(participants.includes('gil')){
+       return  Alert.alert('Participant found.', 'This person is already enrolled on this Event');
+    }
 
-const addParticipantHandler =()=>{
-    console.log('add')
 }
-const removeParticipantHandler =()=>{
-    console.log('remove from the home screen')
-}
+    const removeParticipantHandler =(participant : string)=>{
+        Alert.alert('Delete?',  `Do you want to delete ${participant}`, [
+            {
+            text: 'Yes',
+            onPress: ()=> Alert.alert(`${participant} was removed from the Event`)    
+             },
+             { 
+                text: 'Cancel',
+                style: 'cancel'
+            }
+    ])
+        
+    }
     return (
     <View style={styles.homeContainer}>
         <Text 
@@ -41,19 +56,23 @@ const removeParticipantHandler =()=>{
             </TouchableOpacity>
 
             </View>
-            <ScrollView
-            contentContainerStyle={styles.scrollViewContainer}
-            >
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            <Participant name="Gilmara" onRemove={removeParticipantHandler}/>
-            </ScrollView>
-           
+
+            <FlatList
+            data={participants}
+            keyExtractor={item => item}
+            renderItem={({item})=> (
+                <Participant 
+                name={item} 
+                onRemove={()=>removeParticipantHandler(item)}
+                />)}
+                showsVerticalScrollIndicator={false}
+                ListEmptyComponent={()=>(
+              
+                    <Text style={styles.emptyList}>
+                        Add participants. You still don't have anybody on your Event List. 
+                    </Text>
+          )}
+             />
+             
     </View>)
 };

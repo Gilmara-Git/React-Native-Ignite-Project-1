@@ -49,6 +49,12 @@ const styles = StyleSheet.create({
     },
     scrollViewContainer:{
         paddingBottom: 50
+    },
+    emptyList:{
+        fontSize: 16,
+        color: themes.colors.lightWhite,
+        fontFamily: themes.fonts.InterBold700,
+        textAlign: 'center'
     }
 
 });
