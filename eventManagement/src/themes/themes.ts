@@ -5,7 +5,8 @@ export default {
             brightYellow:'#FFFF00',
             lightWhite: '#FDFCFE',
             gray: '#6B6B6B',
-            rocket: 'rgb(130, 87, 229)'
+            rocket: 'rgb(130, 87, 229)',
+            minusButtonColor: '#E23C44'
     },
     fonts:{
         InterRegular400: 'Inter_400Regular', 
