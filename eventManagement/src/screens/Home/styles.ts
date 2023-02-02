@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         color: themes.colors.purple
     },
     listIcon:{
-        marginTop: 30
+        marginTop: 20
     }
 
 });

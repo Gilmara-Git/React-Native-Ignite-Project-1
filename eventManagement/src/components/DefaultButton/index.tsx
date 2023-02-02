@@ -3,7 +3,7 @@ import styles from './styles'
 
 
 interface DefaultButtonProps extends TouchableOpacityProps{
-    participantHandler?: ()=> void;  
+    participantHandler: ()=> void;  
     children: React.ReactNode;
     color: string
 }
