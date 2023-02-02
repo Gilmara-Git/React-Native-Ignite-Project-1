@@ -7,7 +7,7 @@ import styles from './styles';
 export const Loading =()=>{
   return (
           <View style={styles.loadingIndicator}>
-          <ActivityIndicator color={themes.colors.rocket} size="large" />
+          <ActivityIndicator color={themes.colors.purple} size="large" />
           </View>
           )
   

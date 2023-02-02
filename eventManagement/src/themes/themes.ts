@@ -6,7 +6,12 @@ export default {
             lightWhite: '#FDFCFE',
             gray: '#6B6B6B',
             rocket: 'rgb(130, 87, 229)',
-            minusButtonColor: '#E23C44'
+            purple: 'rgb(189, 147, 249);',
+            minusButtonColor: '#E23C44',
+            pink: 'rgb(255, 121, 198)',
+            greenButton: 'rgb(80, 250, 123)',
+            darkerBackground: '#333437'
+
     },
     fonts:{
         InterRegular400: 'Inter_400Regular', 
