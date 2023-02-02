@@ -4,7 +4,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Participant } from "../../components/Participant";
 import { useState } from "react";
-import { DefaultButton } from '../../components/DefaultButton';
+import { DefaultButton } from "../../components/DefaultButton";
 import {
   View,
   Text,
@@ -12,20 +12,21 @@ import {
   FlatList,
   Alert,
   NativeSyntheticEvent,
+  TextInputEndEditingEventData,
 } from "react-native";
 
 export const Home = () => {
   const [participants, setParticipants] = useState<string[]>([]);
   const [newParticipant, SetNewParticipant] = useState("");
   const [eventName, setEventName] = useState("");
-  const [ inputFocusedBorder, setInputFocusedBorderColor ] = useState('');
+  const [inputFocusedBorder, setInputFocusedBorderColor] = useState("");
 
-  const inputOnFocus =()=>{
-    setInputFocusedBorderColor(themes.colors.purple)
-  }
-  const inputOnBlur =()=>{
-    setInputFocusedBorderColor('')
-  }
+  const inputOnFocus = () => {
+    setInputFocusedBorderColor(themes.colors.purple);
+  };
+  const inputOnBlur = () => {
+    setInputFocusedBorderColor("");
+  };
 
   const addParticipantHandler = () => {
     if (participants.includes(newParticipant)) {
@@ -66,7 +67,9 @@ export const Home = () => {
     );
   };
 
-  const updateEvent = (event: NativeSyntheticEvent) => {
+  const updateEvent = (
+    event: NativeSyntheticEvent<TextInputEndEditingEventData>
+  ) => {
     setEventName(event.nativeEvent.text);
   };
 
@@ -81,8 +84,6 @@ export const Home = () => {
             placeholder="Tap Event's name, then Enter ->"
             placeholderTextColor={themes.colors.gray}
           />
-
-         
         </View>
       ) : (
         <View>
@@ -90,7 +91,10 @@ export const Home = () => {
           <Text style={styles.eventDate}>Saturday, Feb 4th 2023</Text>
           <View style={styles.form}>
             <TextInput
-              style={[styles.input, { borderWidth:1, borderColor: inputFocusedBorder}]}
+              style={[
+                styles.input,
+                { borderWidth: 1, borderColor: inputFocusedBorder },
+              ]}
               placeholder="Type a participant's name"
               placeholderTextColor={themes.colors.gray}
               onChangeText={SetNewParticipant}
@@ -98,31 +102,33 @@ export const Home = () => {
               onFocus={inputOnFocus}
               onBlur={inputOnBlur}
             />
-              <DefaultButton
-                    color={themes.colors.greenButton} 
-                    participantHandler={addParticipantHandler}
-                    >
-                     
-                  <AntDesign name="plus" size={24} color={themes.colors.lightWhite} />
-              </DefaultButton>
+            <DefaultButton
+              color={themes.colors.greenButton}
+              participantHandler={addParticipantHandler}
+            >
+              <AntDesign
+                name="plus"
+                size={24}
+                color={themes.colors.lightWhite}
+              />
+            </DefaultButton>
           </View>
 
           <FlatList
-          contentContainerStyle={{flexGrow:1}}
+            contentContainerStyle={{ flexGrow: 1 }}
             data={participants}
             keyExtractor={(item) => item}
             renderItem={({ item }) => (
-              <Participant
-                name={item}
-                onRemove={removeParticipantHandler}
-              />
+              <Participant name={item} onRemove={removeParticipantHandler} />
             )}
             showsVerticalScrollIndicator={false}
             ListEmptyComponent={() => (
               <View>
                 <View style={styles.marginLine}></View>
                 <View style={styles.fallbackContainer}>
-                  <Text style={styles.emptyListText}>Add participants to your:</Text>
+                  <Text style={styles.emptyListText}>
+                    Add participants to your:
+                  </Text>
                   <Text style={styles.emptyListText}>
                     <Text style={styles.eventText}>
                       {eventName.toUpperCase()}
