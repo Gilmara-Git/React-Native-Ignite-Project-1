@@ -122,9 +122,8 @@ export const Home = () => {
               <View>
                 <View style={styles.marginLine}></View>
                 <View style={styles.fallbackContainer}>
-                  <Text style={styles.emptyListText}>Empty Event list.</Text>
+                  <Text style={styles.emptyListText}>Add participants to your:</Text>
                   <Text style={styles.emptyListText}>
-                    Add participants to your{" "}
                     <Text style={styles.eventText}>
                       {eventName.toUpperCase()}
                     </Text>
