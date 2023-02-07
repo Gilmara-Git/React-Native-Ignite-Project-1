@@ -93,7 +93,7 @@ export const Home = () => {
       ) : (
         <View style={{flex:1}}>
               <Text style={styles.eventLabel}>{eventName.toUpperCase()}</Text>
-              <Text style={styles.eventDate}>Saturday, Feb 4th 2023</Text>
+              <Text style={styles.eventDate}>Saturday, Feb 11th 2023</Text>
               <View style={styles.form}>
                 <TextInput
                   style={[
