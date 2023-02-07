@@ -14,6 +14,7 @@ import {
   NativeSyntheticEvent,
   TextInputEndEditingEventData,
   TouchableWithoutFeedback,
+  Keyboard,
   
 } from "react-native";
 
@@ -119,9 +120,9 @@ export const Home = () => {
                   />
                 </DefaultButton>
               </View>
-              <TouchableWithoutFeedback
-                behavior={Platform.OS === 'ios' ? 'padding': 'height'}
-              >
+              <TouchableWithoutFeedback 
+              onPress={Keyboard.dismiss}
+               >
               <FlatList           
                 data={participants}
                 keyExtractor={(item) => item}
