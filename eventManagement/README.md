@@ -34,10 +34,11 @@ Thanks to [Rocketseat](https://www.instagram.com/rocketseat/?igshid=Yzg5MTU1MDY%
 - Typescript
 - Expo Vector icons
 
-#To run the project
-Clone it
-You will need Expo and NodeJS
-**Navigate** to the project 's folder and run **npx expo start**
+# To run the project
+- Clone it
+- You will need Expo and NodeJS installed
+- **Navigate** to the project 's folder 
+- Run **npx expo start**
 
 **Instructor Mobile**: 
 [Rodrigo Gonçalves](https://www.linkedin.com/in/rodrigo-gon%C3%A7alves-santana/)
