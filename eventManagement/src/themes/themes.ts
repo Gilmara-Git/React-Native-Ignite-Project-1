@@ -9,7 +9,7 @@ export default {
             purple: 'rgb(189, 147, 249);',
             minusButtonColor: '#E23C44',
             pink: 'rgb(255, 121, 198)',
-            greenButton: 'rgb(80, 250, 123)',
+            greenButton: '#6A994E',
             darkerBackground: '#333437'
 
     },
