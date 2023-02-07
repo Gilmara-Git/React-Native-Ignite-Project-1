@@ -13,19 +13,21 @@ import {
   Alert,
   NativeSyntheticEvent,
   TextInputEndEditingEventData,
+  TouchableWithoutFeedback,
+  
 } from "react-native";
 
 export const Home = () => {
   const [participants, setParticipants] = useState<string[]>([]);
   const [newParticipant, SetNewParticipant] = useState("");
   const [eventName, setEventName] = useState("");
-  const [inputFocusedBorder, setInputFocusedBorderColor] = useState("");
+  const [inputFocusedBorder, setInputFocusedBorderColor] = useState('transparent');
 
   const inputOnFocus = () => {
     setInputFocusedBorderColor(themes.colors.purple);
   };
   const inputOnBlur = () => {
-    setInputFocusedBorderColor("");
+    setInputFocusedBorderColor('transparent');
   };
 
   const addParticipantHandler = () => {
@@ -84,67 +86,73 @@ export const Home = () => {
             placeholder="Tap Event's name, then Enter ->"
             placeholderTextColor={themes.colors.gray}
           />
+
+          
         </View>
       ) : (
-        <View>
-          <Text style={styles.eventLabel}>{eventName.toUpperCase()}</Text>
-          <Text style={styles.eventDate}>Saturday, Feb 4th 2023</Text>
-          <View style={styles.form}>
-            <TextInput
-              style={[
-                styles.input,
-                { borderWidth: 1, borderColor: inputFocusedBorder },
-              ]}
-              placeholder="Type a participant's name"
-              placeholderTextColor={themes.colors.gray}
-              onChangeText={SetNewParticipant}
-              value={newParticipant}
-              onFocus={inputOnFocus}
-              onBlur={inputOnBlur}
-            />
-            <DefaultButton
-              color={themes.colors.greenButton}
-              participantHandler={addParticipantHandler}
-            >
-              <AntDesign
-                name="plus"
-                size={24}
-                color={themes.colors.lightWhite}
-              />
-            </DefaultButton>
-          </View>
+        <View style={{flex:1}}>
+              <Text style={styles.eventLabel}>{eventName.toUpperCase()}</Text>
+              <Text style={styles.eventDate}>Saturday, Feb 4th 2023</Text>
+              <View style={styles.form}>
+                <TextInput
+                  style={[
+                    styles.input,
+                    { borderWidth: 1, borderColor: inputFocusedBorder },
+                  ]}
+                  placeholder="Type a participant's name"
+                  placeholderTextColor={themes.colors.gray}
+                  onChangeText={SetNewParticipant}
+                  value={newParticipant}
+                  onFocus={inputOnFocus}
+                  onBlur={inputOnBlur}
+                />
 
-          <FlatList
-            contentContainerStyle={{ flexGrow: 1 }}
-            data={participants}
-            keyExtractor={(item) => item}
-            renderItem={({ item }) => (
-              <Participant name={item} onRemove={removeParticipantHandler} />
-            )}
-            showsVerticalScrollIndicator={false}
-            ListEmptyComponent={() => (
-              <View>
-                <View style={styles.marginLine}></View>
-                <View style={styles.fallbackContainer}>
-                  <Text style={styles.emptyListText}>
-                    Add participants to your:
-                  </Text>
-                  <Text style={styles.emptyListText}>
-                    <Text style={styles.eventText}>
-                      {eventName.toUpperCase()}
-                    </Text>
-                  </Text>
-                  <View style={styles.listIcon}>
-                    <Ionicons
-                      name="list-circle-outline"
-                      size={80}
-                      color={themes.colors.gray}
-                    />
-                  </View>
-                </View>
+
+                <DefaultButton
+                  color={themes.colors.greenButton}
+                  participantHandler={addParticipantHandler}
+                >
+                  <AntDesign
+                    name="plus"
+                    size={24}
+                    color={themes.colors.lightWhite}
+                  />
+                </DefaultButton>
               </View>
-            )}
-          />
+              <TouchableWithoutFeedback
+                behavior={Platform.OS === 'ios' ? 'padding': 'height'}
+              >
+              <FlatList           
+                data={participants}
+                keyExtractor={(item) => item}
+                renderItem={({ item }) => (
+                  <Participant name={item} onRemove={removeParticipantHandler} />
+                )}
+                showsVerticalScrollIndicator={false}
+                ListEmptyComponent={() => (
+                  <View>
+                    <View style={styles.marginLine}></View>
+                    <View style={styles.fallbackContainer}>
+                      <Text style={styles.emptyListText}>
+                        Add participants to your:
+                      </Text>
+                      <Text style={styles.emptyListText}>
+                        <Text style={styles.eventText}>
+                          {eventName.toUpperCase()}
+                        </Text>
+                      </Text>
+                      <View style={styles.listIcon}>
+                        <Ionicons
+                          name="list-circle-outline"
+                          size={80}
+                          color={themes.colors.gray}
+                        />
+                      </View>
+                    </View>
+                  </View>
+                )}
+              />
+              </TouchableWithoutFeedback>
         </View>
       )}
     </View>
