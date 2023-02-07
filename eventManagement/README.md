@@ -10,7 +10,7 @@
 
 # About
 
-First application developed during my React Native Ignite journey.
+First React Native application developed during my React Native Ignite journey.
 You are initially prompted to input your Event's name, then it takes you to enter the participants.
 
 - There are validations to prevent entering duplicated participants or a blank participants's name .
@@ -26,18 +26,17 @@ Thanks to [Rocketseat](https://www.instagram.com/rocketseat/?igshid=Yzg5MTU1MDY%
 
 # Technologies
 
-# Mobile
-
 - Expo
 - React Native (Focused more in **useState** and **FlatList**)
 - Expo google fonts
 - Typescript
 - Expo Vector icons
 
-#To run the project
-Clone it
-You will need Expo and NodeJS
-**Navigate** to the project 's folder and run **npx expo start**
+# To run the project
+- Clone it
+- You will need Expo and NodeJS installed
+- **Navigate** to the project 's folder 
+- Run **npx expo start**
 
 **Instructor Mobile**: 
 [Rodrigo Gonçalves](https://www.linkedin.com/in/rodrigo-gon%C3%A7alves-santana/)
